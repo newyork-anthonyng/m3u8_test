@@ -5,8 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
 </head>
 <body>
-  <h1>Hello World</h1>
+  <video
+    id="my-player"
+    class="video-js"
+    controls
+    preload="auto"
+    poster="//vjs.zencdn.net/v/oceans.png"
+  >
+    <source src="/output/master.m3u8" type="application/x-mpegURL">
+  </video>
+
+  <script>
+    const options = {};
+    const player = videojs('my-player', options, function() {
+      videojs.log('your player is ready');
+    });
+  </script>
 </body>
 </html>
